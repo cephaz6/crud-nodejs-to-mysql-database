@@ -1,0 +1,23 @@
+<nav aria-label="breadcrumb">
+   <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="/">Home</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Edit User</li>
+   </ol>
+</nav>
+{{#if userUpdateAlert}}
+<div class="alert alert-success alert-dissmissible fade show" role="alert">
+ {{userUpdateAlert}}
+ <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+{{#each rows}}
+<div class="row justify-content-center">
+   <div class="col-10 align-self-center">
+      <div class="col-8">
+      <form method="POST" action="/edit-user/{{this.id}}" class="row g-3">
+         {{> user-form}}
+      </form>
+      </div>
+   </div>
+</div>
+{{/each}}
